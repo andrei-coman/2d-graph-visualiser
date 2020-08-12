@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Graph Editor</title>
+		<link rel = "stylesheet" href = "CSS/index.css">
+		
+		<meta charset="utf-8"/>
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+	</head>
+	<body>
+		<div id = "container">
+			<canvas id = "canvas" height = "300" width = "400"></canvas>
+		</div>
+		<form id = "graphInput" action=
+				"javascript: 
+					try{
+						InitializeGraph()
+					}
+					catch(e){
+						nodeCount = 0;
+						nodes.length = 0;
+						edges.length = 0;
+						alert(e);
+					}">
+			<label for="nNodes">Number of nodes: </label><br>
+			<textarea id="nNodes" name="nNodes" rows="1" cols="50">10</textarea><br><br>
+			<label for="edges">Edges: </label><br>
+			<textarea id="edges" name="edges" rows="10" cols="50">
+0 1
+0 2
+0 3
+0 4
+0 5
+0 6
+1 2
+2 3
+3 4
+4 5
+5 6
+6 1
+2 7
+4 8
+6 9
+7 8
+8 9
+9 7</textarea><br><br>
+			<input type="submit" value="Draw Graph">
+		</form>
+		<div id = "instr"> You can drag any node or click it to fix its position!</div>
+		
+		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+		<script src = "JavaScript/jquery.js"></script>
+		<script src = "JavaScript/nodeManager.js"></script>
+		<script src = "JavaScript/nodeDynamics.js"></script>
+		<script src = "JavaScript/nodeDrag.js"></script>
+		<script src = "JavaScript/index.js"></script>
+		<script>if (window.module) module = window.module;</script>
+	</body>
+</html>
